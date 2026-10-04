@@ -1,5 +1,5 @@
 // Tela inicial após o login: resumo rápido de saúde do dia (frequência
-// cardíaca, sono, estresse, passos) e uma dica com base no dia anterior.
+// cardíaca, estresse e passos).
 
 // Imports de componentes, ícones, SVG e estilos compartilhados.
 import { View, Text, ScrollView, TouchableOpacity, SafeAreaView, StatusBar } from "react-native";
@@ -54,16 +54,12 @@ export default function Home({ navigation }) {
 
           <View style={localStyles.darkStatsRow}>
             <View>
-              <Text style={localStyles.darkStatValue}>8h 24m</Text>
-              <Text style={localStyles.darkStatLabel}>Sono</Text>
-            </View>
-            <View>
               <Text style={localStyles.darkStatValue}>Baixo</Text>
               <Text style={localStyles.darkStatLabel}>Estresse</Text>
             </View>
             <View>
-              <Text style={localStyles.darkStatValue}>6.2k</Text>
-              <Text style={localStyles.darkStatLabel}>Passos</Text>
+              <Text style={localStyles.darkStatValue}>Atividade</Text>
+              <Text style={localStyles.darkStatLabel}>Baixa</Text>
             </View>
           </View>
 
@@ -81,7 +77,7 @@ export default function Home({ navigation }) {
           </Svg>
         </View>
 
-        {/* Seção "Acesso rápido": coração, sono e estresse. */}
+        {/* Seção "Acesso rápido": coração e estresse. */}
         <Text style={styles.sectionTitle}>Acesso rápido</Text>
         <View style={localStyles.quickRow}>
           <AcessoRapidoCard
@@ -90,25 +86,20 @@ export default function Home({ navigation }) {
             label="Coração"
           />
           <AcessoRapidoCard
-            tone={{ ...iconTones.moon, iconName: "moon" }}
-            value="8h24"
-            label="Sono"
-          />
-          <AcessoRapidoCard
             tone={{ ...iconTones.zen, iconName: "body" }}
             value="Baixo"
             label="Estresse"
           />
         </View>
 
-        {/* Card com a dica do dia. */}
+        {/* Card com uma dica sobre os batimentos cardíacos. */}
         <View style={[styles.cardSoft, localStyles.tipCard]}>
           <View style={[styles.iconCircleSmall, { backgroundColor: colors.orange }]}>
-            <Ionicons name="sunny" size={16} color={colors.white} />
+            <Ionicons name="heart" size={16} color={colors.white} />
           </View>
           <Text style={localStyles.tipText}>
-            Você dormiu <Text style={localStyles.tipHighlight}>40min a mais</Text> que ontem.
-            Continue assim para manter o equilíbrio.
+            Você manteve seus <Text style={{ color: colors.orangeDeep }}>batimentos estáveis</Text> durante essa semana.<br></br>
+            Continue assim para manter<br></br> o <Text style={{ color: colors.orangeDeep }}>equilíbrio.</Text>
           </Text>
         </View>
       </ScrollView>
@@ -165,7 +156,7 @@ const localStyles = {
     justifyContent: "space-between",
   },
   quickCard: {
-    width: "31%",
+    width: "48%",
     backgroundColor: colors.white,
     borderWidth: 1,
     borderColor: colors.border,
