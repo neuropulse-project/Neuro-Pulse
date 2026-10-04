@@ -28,13 +28,6 @@ const ALERTAS_HOJE = [
 // Alertas de ontem (mock).
 const ALERTAS_ONTEM = [
   {
-    id: "3",
-    tone: { ...iconTones.moon, iconName: "moon" },
-    titulo: "Seu relatório semanal está pronto",
-    descricao: "Você dormiu em média 7h52 essa semana, 12% a mais que a anterior.",
-    horario: "Ontem, 08:00",
-  },
-  {
     id: "4",
     tone: { ...iconTones.orange, iconName: "watch" },
     titulo: "Bateria da pulseira em 20%",
