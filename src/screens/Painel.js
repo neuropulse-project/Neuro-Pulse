@@ -1,6 +1,6 @@
 // Tela de dados detalhados: alterna Dia/Semana/Mês (visual) e mostra
 // frequência cardíaca média (linha) e minutos de atividade (barras em
-// gradiente), além de cartões rápidos de estresse e sono.
+// gradiente), além de um cartão rápido de estresse.
 
 import { useState } from "react";
 import { View, Text, ScrollView, TouchableOpacity, SafeAreaView, StatusBar } from "react-native";
@@ -181,7 +181,7 @@ export default function Painel() {
           </View>
         </View>
 
-        {/* Cards pequenos: estresse e sono. */}
+        {/* Cartão rápido de estresse. */}
         <View style={localStyles.smallRow}>
           <View style={[styles.card, localStyles.smallCard]}>
             <View style={localStyles.dotRow}>
@@ -189,14 +189,6 @@ export default function Painel() {
               <Text style={localStyles.smallLabel}>Estresse</Text>
             </View>
             <Text style={[localStyles.smallValue, { color: colors.text }]}>Baixo</Text>
-          </View>
-
-          <View style={[styles.card, localStyles.smallCard]}>
-            <View style={localStyles.dotRow}>
-              <View style={[localStyles.miniDot, { backgroundColor: colors.moon }]} />
-              <Text style={localStyles.smallLabel}>Sono</Text>
-            </View>
-            <Text style={[localStyles.smallValue, { color: colors.text }]}>7h 52m</Text>
           </View>
         </View>
       </ScrollView>
@@ -277,7 +269,7 @@ const localStyles = {
     marginTop: 16,
   },
   smallCard: {
-    width: "48%",
+    width: "100%",
   },
   dotRow: {
     flexDirection: "row",
